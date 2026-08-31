@@ -1,0 +1,39 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id           String   @id @default(uuid())
+  name         String
+  email        String   @unique
+  passwordHash String
+  role         String   @default("EMPLOYEE")
+  createdAt    DateTime @default(now())
+}
+
+model Product {
+  id           String   @id @default(uuid())
+  sku          String   @unique
+  name         String
+  description  String?
+  costPrice    Float
+  sellingPrice Float
+  currentStock Int
+  minStock     Int
+  unit         String   @default("UN")
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+}
+
+model Sale {
+  id            String   @id @default(uuid())
+  productId     String
+  quantity      Int
+  totalAmount   Float
+  paymentMethod String
+  createdAt     DateTime @default(now())
+}

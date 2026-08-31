@@ -1,0 +1,19 @@
+# Dependências
+node_modules/
+
+# Artefatos de build
+**/dist/
+**/*.js.map
+
+# Arquivos auxiliares gerados por ferramentas
+backend/.agents/
+backend/.claude/
+backend/.cursor/
+backend/.devin/
+
+# Configurações locais
+.env
+.env.*
+!.env.example
+
+# O banco SQLite de desenvolvimento é intencionalmente versionado.
